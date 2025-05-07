@@ -41,10 +41,10 @@ jobs:
           tokenSuffix: "}#"
           files: '["app.env"]'
         env:
-          DB_DRIVER: ${{ secrets.DB_DRIVER }}
+          DB_DRIVER: "postgresql://root:admin@localhost:5432/simple_bank?sslmode=disable"
           DB_SOURCE: ${{ secrets.DB_SOURCE }}
           SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
-          TOKEN_SYMMETRIC_KEY: ${{ secrets.TOKEN_SYMMETRIC_KEY }}
+          TOKEN_SYMMETRIC_KEY: "12345678901234567890123456789012"
           ACCESS_TOKEN_DURATION: ${{ secrets.ACCESS_TOKEN_DURATION }}
 
       - name: Install golang migrate
