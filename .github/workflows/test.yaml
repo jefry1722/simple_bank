@@ -39,7 +39,7 @@ jobs:
         with:
           tokenPrefix: "#{"
           tokenSuffix: "}#"
-          files: '[".app.env"]'
+          files: '["app.env"]'
         env:
           DB_DRIVER: ${{ secrets.DB_DRIVER }}
           DB_SOURCE: ${{ secrets.DB_SOURCE }}
