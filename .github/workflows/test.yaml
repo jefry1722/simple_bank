@@ -41,7 +41,7 @@ jobs:
           tokenSuffix: "}#"
           files: '["app.env"]'
         env:
-          DB_DRIVER: "postgresql://root:admin@localhost:5432/simple_bank?sslmode=disable"
+          DB_DRIVER: postgresql://root:admin@localhost:5432/simple_bank?sslmode=disable
           DB_SOURCE: ${{ secrets.DB_SOURCE }}
           SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
           TOKEN_SYMMETRIC_KEY: "12345678901234567890123456789012"
