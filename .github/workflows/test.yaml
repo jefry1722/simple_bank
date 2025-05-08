@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Copy example.env to app.env
-        run: cat example.env >> app.env
+        run: cp example.env app.env
 
       - name: Install golang migrate
         run: |
