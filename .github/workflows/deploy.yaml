@@ -13,6 +13,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Tokenize .env file
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: "#{"
+          tokenSuffix: "}#"
+          files: '["app.env"]'
+        env:
+          DB_DRIVER: ${{ secrets.DB_DRIVER }}
+          DB_SOURCE: ${{ secrets.DB_SOURCE }}
+          SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
+          TOKEN_SYMMETRIC_KEY: ${{ secrets.TOKEN_SYMMETRIC_KEY }}
+          ACCESS_TOKEN_DURATION: ${{ secrets.ACCESS_TOKEN_DURATION }}
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

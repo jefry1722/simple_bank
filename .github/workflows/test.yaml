@@ -34,6 +34,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Copy example.env to app.env
+        run: cp example.env app.env
+
       - name: Install golang migrate
         run: |
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
