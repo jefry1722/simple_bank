@@ -34,18 +34,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Tokenize .env file
-        uses: cschleiden/replace-tokens@v1
-        with:
-          tokenPrefix: "#{"
-          tokenSuffix: "}#"
-          files: '["app.env"]'
-        env:
-          DB_DRIVER: postgresql://root:admin@localhost:5432/simple_bank?sslmode=disable
-          DB_SOURCE: ${{ secrets.DB_SOURCE }}
-          SERVER_ADDRESS: ${{ secrets.SERVER_ADDRESS }}
-          TOKEN_SYMMETRIC_KEY: "12345678901234567890123456789012"
-          ACCESS_TOKEN_DURATION: ${{ secrets.ACCESS_TOKEN_DURATION }}
+      - name: Copy example.env to app.env
+        run: cat example.env >> app.env
 
       - name: Install golang migrate
         run: |
